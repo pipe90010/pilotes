@@ -1,0 +1,18 @@
+version: '3'
+services:
+  server:
+    container_name: server
+    image: my-spring-boot-pilotes-app:latest
+    environment:
+      SPRING_APPLICATION_JSON: >
+        {
+          "db": {
+            "h2": true,
+            "mysql": false,
+            "schema": true,
+            "seed": true,
+            "populate": true
+          }
+        }
+    ports:
+      - 8080:8080
